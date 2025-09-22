@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={``}
+        className={`box-border`}
       >
         {children}
       </body>

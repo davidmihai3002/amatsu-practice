@@ -6,8 +6,11 @@ const layout = ({children}: {children: React.ReactNode}) => {
   return (
         <SidebarProvider>
           <AppSidebar />
-          <main>
-            <SidebarTrigger/>
+          <main className='w-full flex flex-col px-12 py-6 gap-6'>
+            <div className='flex flex-row gap-1 items-center'>
+              <SidebarTrigger/>
+              Dashboard
+            </div>
             {children}
           </main>
         </SidebarProvider>
