@@ -9,7 +9,7 @@ const statusVariants = {
 
 const Status = ({status}: {status: string}) => {
   return (
-    <div className={`w-fit h-fit flex items-center justify-center p-0.5 border rounded-md text-sm font-medium ${statusVariants[status.toLowerCase() as keyof typeof statusVariants]}`}>
+    <div className={`w-fit h-fit flex items-center justify-center p-0.5 border rounded-md text-xs font-medium ${statusVariants[status.toLowerCase() as keyof typeof statusVariants]}`}>
       {status}
     </div>
   )
