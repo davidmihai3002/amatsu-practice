@@ -1,4 +1,4 @@
-import { Bell, Calendar, ClipboardList, ClipboardPenLine, Home, Inbox, Search, Settings, Store, SunMoon, WalletMinimal } from "lucide-react"
+import { Bell, ClipboardList, ClipboardPenLine, Store, SunMoon, WalletMinimal } from "lucide-react"
 
 import {
   Sidebar,
@@ -14,36 +14,37 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Button } from "./button"
+import { DrawerTrigger } from "./drawer"
 
 // Menu items.
 const items = [
   {
     title: "Updates",
-    url: "#",
+    url: "",
     icon: Bell,
     badge: 3,
   },
   {
     title: "Tasks",
-    url: "#",
+    url: "",
     icon: ClipboardList,
     badge: 0,
   },
   {
     title: "Transactions",
-    url: "#",
+    url: "",
     icon: ClipboardPenLine,
     badge: 1,
   },
   {
     title: "Vendors",
-    url: "#",
+    url: "",
     icon: Store,
     badge: 5,
   },
   {
     title: "Wallets",
-    url: "#",
+    url: "",
     icon: WalletMinimal,
     badge: 0,
   },
@@ -59,27 +60,27 @@ export function AppSidebar() {
         <SidebarGroup>
           {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu> 
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                  <SidebarMenuBadge className="text-red-600">{item.badge > 0 ? item.badge : ""}</SidebarMenuBadge>
-                </SidebarMenuItem>
+                <DrawerTrigger key={item.title} asChild>
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton>
+                        <item.icon />
+                        <span>{item.title}</span>
+                    </SidebarMenuButton>
+                    <SidebarMenuBadge className="text-red-600">{item.badge > 0 ? item.badge : ""}</SidebarMenuBadge>
+                  </SidebarMenuItem>
+                </DrawerTrigger>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <Button variant={"ghost"}>
-          <SunMoon />
-          Change Theme
-        </Button>
+          <SidebarMenuItem>
+            <SunMoon />
+            Change Theme
+          </SidebarMenuItem>
       </SidebarFooter>
     </Sidebar>
   )
